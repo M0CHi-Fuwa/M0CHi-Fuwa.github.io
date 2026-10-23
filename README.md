@@ -11,7 +11,6 @@
 - `game.html`：舊連結轉址至 `gaming/games.html`
 - `assets/style.css`：共用樣式
 - `assets/cyber-retro.css`：遊戲與電腦配備頁的 cyber-retro 佈景
-- `assets/script.js`：Discord ID 複製提示
 - `images/avatar.jpg`：目前暫放的示意頭像，請換成你自己的頭像
 - `images/food.jpg`、`images/moto.jpg`、`images/game.jpg`：三個分類插畫
 
@@ -38,4 +37,3 @@
 - 所有頁面共用同一個側欄與 CSS。
 - 沒有加入「近期紀錄」區塊。
 - Threads 圖示為簡化線條 SVG，若你希望完全採用官方品牌圖示，後續可替換成官方提供的 SVG。
-- Discord 目前只複製 `WEED_M0CHi`，沒有自行猜測邀請連結。
