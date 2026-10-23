@@ -4,11 +4,11 @@
 - `index.html`：首頁
 - `food.html`：美食分類
 - `moto.html`：機車分類
-- `gaming/index.html`：遊戲與完整電腦配備
+- `gaming/games.html`：遊戲與完整電腦配備
 - `gaming/keyboard.html`：G316 X 鍵盤與軸體手感
 - `gaming/cooling.html`：Qube 340 機殼及 Hyper 212 3DHP 風扇配置
-- `gaming/`：集中放置遊戲及電腦配備相關頁面，日後可在此新增同分類頁面
-- `game.html`：舊連結轉址至 `gaming/`
+- `gaming/`：集中放置遊戲及電腦配備相關頁面；站內遊戲入口直接連到 `gaming/games.html`
+- `game.html`：舊連結轉址至 `gaming/games.html`
 - `assets/style.css`：共用樣式
 - `assets/cyber-retro.css`：遊戲與電腦配備頁的 cyber-retro 佈景
 - `assets/script.js`：Discord ID 複製提示

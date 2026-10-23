@@ -32,6 +32,63 @@ button,a{-webkit-tap-highlight-color:transparent}
 .sidebar-note span{display:block}
 .main{margin-left:var(--sidebar);min-height:100vh;padding:38px clamp(24px,4vw,66px) 28px}
 .topline{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:40px}
+.breadcrumb{display:flex;align-items:center;gap:9px;margin:-17px 0 17px;color:var(--muted);font-size:12px;line-height:1.5}.breadcrumb a{color:var(--game);font-weight:700}.breadcrumb a:hover{text-decoration:underline}.breadcrumb span[aria-current="page"]{color:var(--ink)}
+
+/* Gaming equipment cards use the site's shared light palette. */
+.spec-panel{padding:22px;margin-bottom:18px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
+.spec-panel .section-head{margin-bottom:15px}
+.gear-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
+.gear-card{position:relative;display:block;min-width:0;min-height:98px;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:#fffefa;color:var(--ink)}
+.gear-card dt{margin:0 0 5px;color:var(--muted);font-size:9px;line-height:1.4;font-weight:850;letter-spacing:.17em}
+.gear-card dd{margin:0;font-size:13px;line-height:1.55;font-weight:650;overflow-wrap:anywhere}
+.gear-card.is-link{padding-right:36px;transition:border-color .2s,background .2s,transform .2s}
+.gear-card.is-link:after{content:"↗";position:absolute;right:14px;top:12px;color:var(--game);font-size:14px;pointer-events:none}
+.gear-card .gear-hint{display:block;margin-top:7px;color:var(--game);font-size:10px;line-height:1.4}
+.gear-card .gear-card-hit{position:absolute;inset:0;z-index:1;border-radius:inherit}
+.gear-card .gear-card-hit:focus-visible{outline:2px solid var(--game);outline-offset:3px}
+.gear-card.is-link:hover{transform:translateY(-2px);border-color:var(--game);background:#f7f2fa}
+@media(max-width:1050px){.gear-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Cooling layout and fan cards share the site's warm, light palette. */
+.cooling-hero{margin-bottom:42px}
+.cooling-hero .text-link{margin-top:20px}
+.cooling-visual{height:280px;position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:radial-gradient(ellipse at center,#e8d8c566,transparent 62%),#f3ede4;box-shadow:inset 0 0 35px #9181a71c}
+.cooling-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(#9181a712 1px,transparent 1px),linear-gradient(90deg,#9181a712 1px,transparent 1px);background-size:22px 22px}
+.case-outline{width:220px;height:205px;position:relative;border:1px solid #a9947c;border-radius:9px;background:linear-gradient(135deg,#eee4d7,#fffdf9);box-shadow:0 0 28px #9181a722,inset 0 0 20px #b77c4b14}
+.case-outline:before{content:"";position:absolute;top:28px;bottom:12px;right:12px;width:106px;border:1px solid #d0bda8;border-radius:5px;background:linear-gradient(135deg,#f3eadf99,#e5daccaa)}
+.case-topline{position:absolute;top:8px;left:12px;color:#8c7057;font:800 9px/1.2 ui-monospace,monospace;letter-spacing:.2em}
+.case-front-fans{position:absolute;left:18px;top:47px;display:grid;gap:11px;justify-items:center}
+.case-front-fans small,.case-bottom-fan small,.case-rear-fan small{font:700 7px/1 ui-monospace,monospace;letter-spacing:.12em;color:#8c7057}
+.case-bottom-fan{position:absolute;left:69px;bottom:17px;display:grid;justify-items:center;gap:3px}
+.case-rear-fan{position:absolute;right:19px;top:49px;display:grid;justify-items:center;gap:3px}
+.case-glow{position:absolute;right:48px;bottom:37px;width:38px;height:58px;border:1px solid #9181a766;border-radius:4px;box-shadow:0 0 14px #9181a722}
+.visual-index{position:absolute;right:15px;bottom:13px;color:#8c7b6b;font:700 8px/1.2 ui-monospace,monospace;letter-spacing:.14em}
+.cooling-section{margin:0 0 28px}
+.cooling-card{padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:var(--paper)}
+.cooling-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;margin-bottom:15px;border-bottom:1px solid var(--line)}
+.tech-label{color:var(--game);font:800 9px/1.4 ui-monospace,monospace;letter-spacing:.17em}
+.component-name{color:var(--muted);font-size:11px;font-weight:650;text-align:right}
+.fan-position-grid{display:grid;gap:11px}
+.tower-fans{grid-template-columns:repeat(2,minmax(0,1fr))}
+.case-fans{grid-template-columns:repeat(3,minmax(0,1fr))}
+.fan-position{display:flex;align-items:center;gap:14px;min-width:0;padding:13px;border:1px solid var(--line);border-radius:13px;background:#fffefa}
+.fan-illustration{position:relative;flex:none;width:74px;height:74px;display:flex;align-items:center;justify-content:center;border:1px solid #e2d7ca;border-radius:10px;background:#f7f2eb}
+.fan-mark{position:relative;width:42px;height:42px;border:1px solid #9181a7;border-radius:50%;background:radial-gradient(circle at center,#bba8c9 0 3px,transparent 4px),conic-gradient(from 15deg,transparent 0 13%,#9181a755 14% 25%,transparent 26% 38%,#9181a755 39% 50%,transparent 51% 63%,#9181a755 64% 75%,transparent 76% 88%,#9181a755 89% 100%);box-shadow:0 0 15px #9181a726;animation:fan-spin 16s linear infinite}
+.fan-mark:after{content:"";position:absolute;inset:5px;border:1px dashed #9181a766;border-radius:50%}
+.fan-side-label{position:absolute;bottom:5px;color:#8c7b6b;font:700 7px/1 ui-monospace,monospace;letter-spacing:.12em}
+.fan-location{margin-bottom:4px;color:#9181a7;font:800 8px/1.4 ui-monospace,monospace;letter-spacing:.16em}
+.fan-position h4{margin:0;color:var(--ink);font-size:13px;line-height:1.4;overflow-wrap:anywhere}
+.fan-position p{margin:4px 0 0;color:var(--muted);font-size:11px}
+.related-pages{display:flex;gap:10px;margin:26px 0 8px}
+.related-pages a{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-size:12px;font-weight:700;transition:border-color .2s,background .2s}
+.related-pages a:hover{border-color:var(--game);background:#f7f2fa}
+.related-pages a span,.related-pages a b{color:var(--game)}
+.fan-illustration.double{width:92px;gap:4px}.fan-illustration.double .fan-mark{width:33px;height:33px}
+@keyframes fan-spin{to{transform:rotate(360deg)}}
+@media(max-width:780px){.cooling-hero{grid-template-columns:1fr}.cooling-visual{height:235px}.case-fans{grid-template-columns:1fr}.cooling-card{padding:16px}.related-pages{flex-wrap:wrap}}
+@media(max-width:480px){.tower-fans{grid-template-columns:1fr}.cooling-card-head{align-items:flex-start;flex-direction:column}.component-name{text-align:left}.fan-position{gap:11px}.fan-illustration{width:64px;height:64px}.related-pages a{flex:1 1 100%}.fan-illustration.double{width:92px}}
+@media(prefers-reduced-motion:reduce){.fan-mark{animation:none}}
+@media(max-width:480px){.spec-panel{padding:17px}.gear-grid{grid-template-columns:1fr}.gear-card{min-height:0}}
 .eyebrow{font-size:11px;letter-spacing:.2em;color:var(--muted);font-weight:750}
 .top-tag{border:1px solid var(--line);border-radius:99px;padding:6px 12px;color:var(--muted);font-size:11px;letter-spacing:.08em}
 .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(220px,.9fr);gap:34px;align-items:center;margin-bottom:46px}

@@ -7,15 +7,30 @@
 <meta name="description" content="牛奶麻糬的 Logitech G316 X 鍵盤與四種軸體手感紀錄。">
 <title>鍵盤軸體｜牛奶麻糬</title>
 <link rel="stylesheet" href="../assets/style.css">
-<link rel="stylesheet" href="../assets/cyber-retro.css">
+<script src="../assets/keyboard-map.js" defer></script>
 <script src="../assets/script.js" defer></script>
 <style>
-.keyboard-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.86fr);gap:26px;align-items:center;margin-bottom:30px}
-.keyboard-art{min-height:238px;padding:22px;border:1px solid #e7d9c8;border-radius:24px;background:linear-gradient(145deg,#f2e7d8,#e8dbc9);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.key-board{width:min(100%,430px);display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:5px;transform:rotate(-2deg);filter:drop-shadow(0 12px 12px #614c3320)}
-.key{height:24px;border:1px solid #d8c9b8;border-radius:6px;background:#fffaf2;box-shadow:0 3px 0 #d9c9b7;color:#847462;font-size:7px;display:flex;align-items:center;justify-content:center;line-height:1;white-space:nowrap}
-.key.w2{grid-column:span 2}.key.w3{grid-column:span 3}.key.w4{grid-column:span 4}.key.w5{grid-column:span 5}.key.w6{grid-column:span 6}
-.key.accent-a{background:#e5eee8;border-color:#c7d8ca}.key.accent-b{background:#f0e3d2;border-color:#dfc7ac}.key.accent-c{background:#eee7f1;border-color:#d8c9df}.key.accent-d{background:#f3e4e1;border-color:#e2c7c0}
+.keyboard-intro{margin-bottom:30px}
+.keyboard-copy{max-width:760px;margin-bottom:24px}
+.keyboard-copy h2{font-size:clamp(38px,5vw,64px);line-height:1.1;letter-spacing:-.045em;margin:8px 0 14px}
+.keyboard-copy p{max-width:620px;color:var(--muted);margin:0}
+.keyboard-workbench{display:block;width:max-content;max-width:none;margin:auto}
+.keyboard-art{position:relative;padding:clamp(14px,2.8vw,28px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#f1e8db,#fffdf9);box-shadow:0 12px 32px rgba(61,43,28,.08);overflow-x:auto}
+.keyboard-device{width:var(--device-width);padding:14px;border:1px solid #d8c9b7;border-radius:12px;background:linear-gradient(150deg,#e9dfd2,#f8f5ef 72%);box-shadow:0 12px 24px rgba(61,43,28,.16),inset 0 1px #ffffffaa}
+.keyboard-face{position:relative;width:var(--face-width);height:var(--face-height)}
+.key{position:absolute;left:var(--left);top:var(--top);width:var(--width);height:var(--unit);min-width:0;padding:4px;border:1px solid #d4c3b0;border-radius:6px;background:#fffdf9;box-shadow:0 3px 0 #c9b9a7;color:#69594c;font:700 clamp(8px,.75vw,11px)/1 ui-monospace,monospace;display:flex;flex-direction:column;align-items:center;justify-content:center;white-space:nowrap;cursor:pointer;transition:transform .15s,filter .15s,box-shadow .15s}
+.key:hover,.key:focus-visible,.key.is-active{transform:translateY(-3px);filter:brightness(1.16);box-shadow:0 5px 0 #c9b9a7,0 0 14px #9181a766;outline:none;z-index:3}
+.key[data-axis="ice"]{--keycap:#83DFF2}.key[data-axis="graywood"]{--keycap:#778582;--key-text:#f4f8f5}.key[data-axis="purple"]{--keycap:#C5A0F5}.key[data-axis="marble"]{--keycap:#F2EBDD}
+.key[data-axis]{background:var(--keycap);border-color:color-mix(in srgb,var(--keycap),#fff 20%);color:var(--key-text,#122019)}
+.key-main-legend{font-size:1em}.key-sub-legend{font-size:.7em;opacity:.78;margin-top:3px}
+.board-controls{position:absolute;left:var(--controls-left);top:0;width:var(--controls-width);height:var(--unit);display:flex;align-items:center;justify-content:space-around;padding:4px 6px;border:1px solid #473e3a;border-radius:7px;background:#302c2b;color:#f1e7dc}
+.matrix-screen{width:36px;height:29px;display:grid;grid-template-columns:repeat(8,2px);grid-template-rows:repeat(5,2px);gap:2px;align-content:center;justify-content:center;border:1px solid #62594f;border-radius:3px;background:#211f1e;box-shadow:inset 0 0 9px #c5a0f533}
+.matrix-screen i{width:2px;height:2px;background:#c5a0f5;box-shadow:0 0 3px #c5a0f5}
+.control-icons{display:grid;gap:4px;font:10px/1 ui-monospace,monospace;text-align:center}
+.knob{width:27px;height:27px;border:3px solid #8f789f;border-radius:50%;background:repeating-conic-gradient(#c5a0f5 0 5deg,#473c4c 5deg 11deg);box-shadow:0 0 10px #9181a766}
+.key-hover-label{position:fixed;left:0;top:0;z-index:60;max-width:220px;padding:9px 12px;border:1px solid var(--tip-accent,#9181a7);border-radius:8px;background:#fffdf9;color:#594c5f;box-shadow:0 7px 24px #352b2522,0 0 12px color-mix(in srgb,var(--tip-accent,#9181a7),transparent 72%);font:800 12px/1.3 ui-monospace,monospace;letter-spacing:.03em;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;white-space:nowrap}
+.key-hover-label.is-visible{opacity:1;transform:translateY(0)}
+.switch-card.is-active{border-color:var(--switch-color);box-shadow:0 0 0 1px var(--switch-color),0 0 22px color-mix(in srgb,var(--switch-color),transparent 72%)}
 .switch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .switch-card{position:relative;min-width:0;padding:20px 21px 19px;border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}
 .switch-card:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--switch-color,#c98a52)}
@@ -24,14 +39,14 @@
 .switch-card h3{margin:0 0 8px;font-size:20px;line-height:1.35;letter-spacing:-.02em}
 .switch-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
 .switch-card .feel{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.switch-card .feel span{padding:4px 9px;border-radius:99px;background:#f5efe7;color:#78695b;font-size:10px;line-height:1.5}
-.keyboard-note{display:flex;gap:13px;align-items:flex-start;margin-top:17px;padding:15px 17px;border:1px solid #e8d8c5;border-radius:15px;background:#f5eee4;color:#78695b;font-size:12px;line-height:1.75}
-.keyboard-note b{flex:none;color:#9d7049;font-size:15px;line-height:1.4}
-@media(max-width:780px){.keyboard-intro{grid-template-columns:1fr;gap:17px}.keyboard-art{min-height:205px;padding:16px}.key-board{gap:4px}.key{height:22px;font-size:6px}.switch-grid{grid-template-columns:1fr;gap:10px}.switch-card{padding:17px 18px}.switch-card h3{font-size:19px}}
-@media(max-width:420px){.keyboard-art{min-height:170px;padding:11px}.key-board{gap:3px}.key{height:19px;border-radius:5px;font-size:5px}}
+.switch-card .feel span{padding:4px 9px;border-radius:99px;background:#f2eadf;color:#716358;border:1px solid var(--line);font-size:10px;line-height:1.5}
+.keyboard-note{display:flex;gap:13px;align-items:flex-start;margin-top:17px;padding:15px 17px;border:1px solid var(--line);border-radius:15px;background:#f2eadf;color:#716358;font-size:12px;line-height:1.75}
+.keyboard-note b{flex:none;color:var(--game);font-size:15px;line-height:1.4}
+@media(max-width:780px){.keyboard-workbench{margin:0}.keyboard-art{padding:12px}.switch-grid{grid-template-columns:1fr;gap:10px}.switch-card{padding:17px 18px}.switch-card h3{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.key{transition:none}}
 </style>
 </head>
-<body class="cyber-theme">
+<body>
 <div class="site-shell">
 <aside class="sidebar">
   <div class="profile">
@@ -45,28 +60,22 @@
 <button class="social-link" type="button" data-copy="WEED_M0CHi" style="border:0;background:transparent;text-align:left;color:inherit;cursor:pointer;font:inherit;width:100%"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.7 5.3A18 18 0 0 0 15.2 4l-.6 1.2a16.5 16.5 0 0 0-5.2 0L8.8 4a18 18 0 0 0-4.5 1.3C1.5 9.5.7 13.5 1.1 17.4a18 18 0 0 0 5.5 2.8l1.2-2a11 11 0 0 1-1.9-.9l.5-.4a12.7 12.7 0 0 0 11.2 0l.5.4a11 11 0 0 1-1.9.9l1.2 2a18 18 0 0 0 5.5-2.8c.5-4.5-.8-8.5-3.2-12.1ZM8.7 14.7c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2-2 1-2 2.2Z"/></svg><span>Discord</span><span class="copy-hint">複製 ID</span></button>
 </div>
   <div class="nav-label">EXPLORE MY WORLD</div>
-  <nav class="main-nav" aria-label="主要導覽"><a href="../index.html"><span class="nav-mark"></span><span>首頁</span></a><a href="../food.html"><span class="nav-mark food"></span><span>美食</span></a><a href="../moto.html"><span class="nav-mark moto"></span><span>機車</span></a><a href="index.html"><span class="nav-mark game"></span><span>遊戲</span></a><a href="keyboard.html" aria-current="page"><span class="nav-mark gear"></span><span>鍵盤軸體</span></a><a href="cooling.html"><span class="nav-mark gear"></span><span>散熱佈局</span></a></nav>
+  <nav class="main-nav" aria-label="主要導覽"><a href="../index.html"><span class="nav-mark"></span><span>首頁</span></a><a href="../food.html"><span class="nav-mark food"></span><span>美食</span></a><a href="../moto.html"><span class="nav-mark moto"></span><span>機車</span></a><a href="games.html" aria-current="location"><span class="nav-mark game"></span><span>遊戲</span></a></nav>
   <div class="sidebar-note"><span>Good Food</span><span>Good Ride</span><span>Good Game　♡</span></div>
 </aside>
 <main class="main">
+  <nav class="breadcrumb" aria-label="目前位置"><a href="games.html">遊戲與配備</a><span aria-hidden="true">›</span><span aria-current="page">鍵盤軸體</span></nav>
   <div class="topline"><span class="eyebrow">MILK MOCHI'S LITTLE WORLD</span><span class="top-tag">KEYBOARD NOTES</span></div>
   <section class="keyboard-intro">
-    <div><div class="page-label">LOGITECH G316 X · SWITCH NOTES</div><h2 style="font-size:clamp(38px,5vw,64px);line-height:1.1;letter-spacing:-.045em;margin:8px 0 14px">同一把鍵盤，<br>四種手感風景。</h2><p style="max-width:530px;color:var(--muted);margin:0">把 G316 X 上遇見的幾種軸體記錄下來：安靜、紮實、滑順，還有遊戲時俐落的回彈。</p></div>
-    <div class="keyboard-art" role="img" aria-label="G316 X 75% 配列鍵盤示意圖"><div class="key-board" aria-hidden="true">
-      <span class="key">Esc</span><span class="key">F1</span><span class="key">F2</span><span class="key">F3</span><span class="key">F4</span><span class="key">F5</span><span class="key">F6</span><span class="key">F7</span><span class="key">F8</span><span class="key">F9</span><span class="key">F10</span><span class="key">F11</span><span class="key">F12</span><span class="key">Del</span><span class="key">Ins</span>
-      <span class="key">~</span><span class="key">1</span><span class="key">2</span><span class="key">3</span><span class="key">4</span><span class="key">5</span><span class="key">6</span><span class="key">7</span><span class="key">8</span><span class="key">9</span><span class="key">0</span><span class="key">-</span><span class="key">=</span><span class="key w2">Backspace</span><span class="key">Home</span>
-      <span class="key w2">Tab</span><span class="key">Q</span><span class="key">W</span><span class="key">E</span><span class="key">R</span><span class="key">T</span><span class="key">Y</span><span class="key">U</span><span class="key">I</span><span class="key">O</span><span class="key">P</span><span class="key">[</span><span class="key">]</span><span class="key">\</span><span class="key">PgUp</span>
-      <span class="key w2">Caps</span><span class="key">A</span><span class="key">S</span><span class="key">D</span><span class="key">F</span><span class="key">G</span><span class="key">H</span><span class="key">J</span><span class="key">K</span><span class="key">L</span><span class="key">;</span><span class="key">'</span><span class="key w2">Enter</span><span class="key">PgDn</span>
-      <span class="key w2">Shift</span><span class="key">Z</span><span class="key">X</span><span class="key">C</span><span class="key">V</span><span class="key">B</span><span class="key">N</span><span class="key">M</span><span class="key">,</span><span class="key">.</span><span class="key">/</span><span class="key w2">Shift</span><span class="key">↑</span><span class="key">End</span>
-      <span class="key w2">Ctrl</span><span class="key">Win</span><span class="key">Alt</span><span class="key w6">Space</span><span class="key">Alt</span><span class="key">Fn</span><span class="key">Ctrl</span><span class="key">←</span><span class="key">↓</span><span class="key">→</span><span class="key">PgDn</span>
-    </div></div>
+    <div class="keyboard-copy"><div class="page-label">LOGITECH G316 X · SWITCH NOTES</div><h2>同一把鍵盤，<br>四種手感風景。</h2><p>把 G316 X 上遇見的幾種軸體記錄下來：安靜、紮實、滑順，還有遊戲時俐落的回彈。移到按鍵上就能查看軸體分布。</p></div>
+    <div class="keyboard-art"><div class="keyboard-workbench"><div class="keyboard-device" aria-label="依照 Keyboard Layout Editor 配列呈現的 G316 X 鍵盤"><div class="keyboard-face" aria-label="G316 X 75% 配列互動鍵盤"></div></div></div></div><div class="key-hover-label" role="status" aria-live="polite"></div>
   </section>
   <section aria-labelledby="switches-title"><div class="section-head"><div><div class="eyebrow">FOUR SWITCHES, FOUR IMPRESSIONS</div><h3 id="switches-title">軸體手感筆記</h3></div><p>留下使用時最直接的感受。</p></div>
     <div class="switch-grid">
-      <article class="switch-card" style="--switch-color:#a6bcb4"><div class="switch-maker"><span>Outemu</span><span class="switch-index">01</span></div><h3>冰雪軸 V3</h3><p>全透明的靜音軸，敲擊聲收得很低，喜歡清爽安靜手感時很合適。</p><div class="feel"><span>全透明</span><span>靜音</span><span>輕柔</span></div></article>
-      <article class="switch-card" style="--switch-color:#b79570"><div class="switch-maker"><span>Leobog</span><span class="switch-index">02</span></div><h3>灰木軸 V4</h3><p>手感紮實、回饋比較「肉」；聲音相較之下較散，是厚實但不那麼集中的敲擊感。</p><div class="feel"><span>紮實</span><span>肉感</span><span>聲音較散</span></div></article>
-      <article class="switch-card" style="--switch-color:#b899bd"><div class="switch-maker"><span>Maorbeng</span><span class="switch-index">03</span></div><h3>妹紫軸</h3><p>按起來滑順，整體沒有明顯短處。組裝時軸腳比較容易歪，價格也稍高一些。</p><div class="feel"><span>滑順</span><span>組裝留意軸腳</span><span>價格較高</span></div></article>
-      <article class="switch-card" style="--switch-color:#cf9a8d"><div class="switch-maker"><span>Logitech</span><span class="switch-index">04</span></div><h3>大理石軸</h3><p>回彈俐落、遊戲操作跟手；長時間頻繁按 Shift 與 Ctrl，左手小拇指會比較吃力。</p><div class="feel"><span>回彈俐落</span><span>遊戲跟手</span><span>長按修飾鍵較累</span></div></article>
+      <article class="switch-card" data-axis-card="ice" style="--switch-color:#83DFF2"><div class="switch-maker"><span>Outemu</span><span class="switch-index">01</span></div><h3>冰雪軸 V3</h3><p>全透明的靜音軸，敲擊聲收得很低，喜歡清爽安靜手感時很合適。</p><div class="feel"><span>全透明</span><span>靜音</span><span>輕柔</span></div></article>
+      <article class="switch-card" data-axis-card="graywood" style="--switch-color:#778582"><div class="switch-maker"><span>Leobog</span><span class="switch-index">02</span></div><h3>灰木軸 V4</h3><p>手感紮實、回饋比較「肉」；聲音相較之下較散，是厚實但不那麼集中的敲擊感。</p><div class="feel"><span>紮實</span><span>肉感</span><span>聲音較散</span></div></article>
+      <article class="switch-card" data-axis-card="purple" style="--switch-color:#C5A0F5"><div class="switch-maker"><span>Maorbeng</span><span class="switch-index">03</span></div><h3>妹紫軸</h3><p>按起來滑順，整體沒有明顯短處。組裝時軸腳比較容易歪，價格也稍高一些。</p><div class="feel"><span>滑順</span><span>組裝留意軸腳</span><span>價格較高</span></div></article>
+      <article class="switch-card" data-axis-card="marble" style="--switch-color:#F2EBDD"><div class="switch-maker"><span>Logitech</span><span class="switch-index">04</span></div><h3>大理石軸</h3><p>回彈俐落、遊戲操作跟手；長時間頻繁按 Shift 與 Ctrl，左手小拇指會比較吃力。</p><div class="feel"><span>回彈俐落</span><span>遊戲跟手</span><span>長按修飾鍵較累</span></div></article>
     </div>
     <div class="keyboard-note"><b aria-hidden="true">✦</b><span>這裡記的是實際使用感受：大理石軸的回彈很適合遊戲操作，但若一場遊戲裡常按 Shift 和 Ctrl，也要把小拇指的負擔一起算進去。</span></div>
   </section>
