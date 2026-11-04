@@ -6,10 +6,10 @@
   // Key widths and staggered positions follow the supplied Keyboard Layout Editor layout.
   const rows = [
     { y: 0, x: 0, keys: [['Esc','Esc'], ['F1','F1',1,.25], ['F2','F2'], ['F3','F3'], ['F4','F4'], ['F5','F5',1,.25], ['F6','F6'], ['F7','F7'], ['F8','F8'], ['F9','F9',1,.25], ['F10','F10'], ['F11','F11'], ['F12','F12']] },
-    { y: 1.5, x: 0, keys: [['~','~\n`'], ['1','!\n1'], ['2','@\n2'], ['3','#\n3'], ['4','$\n4'], ['5','%\n5'], ['6','^\n6'], ['7','&\n7'], ['8','*\n8'], ['9','(\n9'], ['0',')\n0'], ['-','_\n-'], ['=','+\n='], ['Backspace','Backspace',2], ['DEL','DEL',1,.5]] },
-    { y: 2.5, x: 0, keys: [['Tab','TAB',1.5], ['Q','Q'], ['W','W'], ['E','E'], ['R','R'], ['T','T'], ['Y','Y'], ['U','U'], ['I','I'], ['O','O'], ['P','P'], ['[','{\n['], [']','}\n]'], ['\\','|\n\\',1.5], ['PRNT','PRNT',1,.5]] },
-    { y: 3.5, x: 0, keys: [['Caps','CAPS',1.75], ['A','A'], ['S','S'], ['D','D'], ['F','F'], ['G','G'], ['H','H'], ['J','J'], ['K','K'], ['L','L'], [';',':\n;'], ["'",'"\n\''], ['Enter','Enter',2.25], ['Page Up','Page Up',1,.5]] },
-    { y: 4.5, x: 0, keys: [['Shift','SHIFT',2.25], ['Z','Z'], ['X','X'], ['C','C'], ['V','V'], ['B','B'], ['N','N'], ['M','M'], [',','<\n,'], ['.','>\n.'], ['/','?\n/'], ['Shift','SHIFT',1.75], ['Page Down','Page Down',1,1.5]] },
+    { y: 1.5, x: 0, keys: [['~','~\n`'], ['1','!\n1'], ['2','@\n2'], ['3','#\n3'], ['4','$\n4'], ['5','%\n5'], ['6','^\n6'], ['7','&\n7'], ['8','*\n8'], ['9','(\n9'], ['0',')\n0'], ['-','_\n-'], ['=','+\n='], ['Backspace','Backspace',2], ['INS','INS',1,.5]] },
+    { y: 2.5, x: 0, keys: [['Tab','TAB',1.5], ['Q','Q'], ['W','W'], ['E','E'], ['R','R'], ['T','T'], ['Y','Y'], ['U','U'], ['I','I'], ['O','O'], ['P','P'], ['[','{\n['], [']','}\n]'], ['\\','|\n\\',1.5], ['PGUP','PGUP',1,.5]] },
+    { y: 3.5, x: 0, keys: [['Caps','CAPS',1.75], ['A','A'], ['S','S'], ['D','D'], ['F','F'], ['G','G'], ['H','H'], ['J','J'], ['K','K'], ['L','L'], [';',':\n;'], ["'",'"\n\''], ['Enter','Enter',2.25], ['PGDN','PGDN',1,.5]] },
+    { y: 4.5, x: 0, keys: [['Shift','SHIFT',2.25], ['Z','Z'], ['X','X'], ['C','C'], ['V','V'], ['B','B'], ['N','N'], ['M','M'], [',','<\n,'], ['.','>\n.'], ['/','?\n/'], ['Shift','SHIFT',1.75], ['DEL','DEL',1,1.5]] },
     { y: 4.75, x: 14.25, keys: [['↑','↑']] },
     { y: 5.5, x: 0, keys: [['Ctrl','CTRL',1.25], ['Win','Win',1.25], ['Alt','Alt',1.25], ['Space','',6.25], ['Alt','ALT'], ['Fn','FN'], ['Ctrl','CTRL']] },
     { y: 5.75, x: 13.25, keys: [['←','←'], ['↓','↓'], ['→','→']] }
@@ -82,13 +82,13 @@
     selected.forEach((key) => { key.dataset.axis = axis; });
   };
 
-  // Factory Marble switches remain on every key that has not been replaced.
+  // Unchanged keys keep the factory Marble switch; only listed keys are recolored.
   buttons.forEach((key) => { key.dataset.axis = 'marble'; });
-  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach((letter) => assign(letter, 'ice'));
-  ['Space', 'Backspace', 'Enter'].forEach((keyName) => assign(keyName, 'graywood'));
-  assign('Shift', 'graywood', 0);
-  ['Tab', 'Caps', 'Win', 'Alt', 'Fn', ...Array.from({length: 12}, (_, i) => `F${i + 1}`), 'DEL', 'PRNT', 'Page Up', 'Page Down', 'Ctrl'].forEach((keyName) => assign(keyName, 'purple'));
-  assign('Shift', 'purple', 1);
+  ['Esc', '~', 'Tab', 'Caps', 'Shift', 'Win', 'Alt', 'Space', 'Fn', '\\', 'Backspace', 'Enter'].forEach((keyName) => assign(keyName, 'ice'));
+  assign('Ctrl', 'ice', 1); // Right Ctrl
+  ['W', 'A', 'S', 'D'].forEach((keyName) => assign(keyName, 'graywood'));
+  ['Q', 'E', 'R', 'T', 'Y', 'F', 'G', 'INS', 'PGUP', 'PGDN', 'DEL', ...Array.from({length: 12}, (_, i) => `F${i + 1}`)].forEach((keyName) => assign(keyName, 'purple'));
+  assign('Ctrl', 'purple', 0); // Left Ctrl
 
   function placeTooltip(x, y) {
     tooltip.classList.add('is-visible');
