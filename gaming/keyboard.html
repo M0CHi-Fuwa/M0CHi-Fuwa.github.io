@@ -43,7 +43,13 @@
 .switch-card .feel span{padding:4px 9px;border-radius:99px;background:#f2eadf;color:#716358;border:1px solid var(--line);font-size:10px;line-height:1.5}
 .keyboard-note{display:flex;gap:13px;align-items:flex-start;margin-top:17px;padding:15px 17px;border:1px solid var(--line);border-radius:15px;background:#f2eadf;color:#716358;font-size:12px;line-height:1.75}
 .keyboard-note b{flex:none;color:var(--game);font-size:15px;line-height:1.4}
+.keycap-profile{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:24px;padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,#f3f0ed,#fffdf9 65%);margin-bottom:32px}
+.keycap-story .eyebrow{margin-bottom:9px}.keycap-story h4{margin:0 0 10px;font-size:25px;letter-spacing:-.03em}.keycap-story p{max-width:620px;margin:0;color:var(--muted);font-size:13px;line-height:1.85}
+.keycap-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:0}
+.keycap-spec{padding:12px 14px;border:1px solid var(--line);border-radius:13px;background:#fffdf9}
+.keycap-spec dt{color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.keycap-spec dd{margin:4px 0 0;font-size:13px;font-weight:700;line-height:1.5}
 @media(max-width:780px){.keyboard-workbench{margin:0}.keyboard-art{padding:12px}.switch-grid{grid-template-columns:1fr;gap:10px}.switch-card{padding:17px 18px}.switch-card h3{font-size:19px}}
+@media(max-width:680px){.keycap-profile{grid-template-columns:1fr;gap:17px;padding:19px}.keycap-specs{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){.key{transition:none}}
 </style>
 <meta property="og:type" content="website">
@@ -79,17 +85,29 @@
   <nav class="breadcrumb" aria-label="目前位置"><a href="games.html">遊戲與配備</a><span aria-hidden="true">›</span><span aria-current="page">鍵盤軸體</span></nav>
   <div class="topline"><span class="eyebrow">MILK MOCHI'S LITTLE WORLD</span><span class="top-tag">KEYBOARD NOTES</span></div>
   <section class="keyboard-intro">
-    <div class="keyboard-copy"><div class="page-label">LOGITECH G316 X · SWITCH NOTES</div><h2>同一把鍵盤，<br>四種手感風景。</h2><p>文字區大多保留原廠大理石軸，少數鍵位換成冰雪、灰木 V4 或妹紫軸。移到按鍵上就能查看每個鍵位的軸體配置。</p></div>
+    <div class="keyboard-copy"><div class="page-label">LOGITECH G316 X · SWITCH NOTES</div><h2>同一把鍵盤，<br>四種手感風景。</h2><p>依照目前的改裝配置標示每顆按鍵；移到鍵盤上即可查看目前使用的軸體。</p></div>
     <div class="keyboard-art"><div class="keyboard-workbench"><div class="keyboard-device" aria-label="依照 Keyboard Layout Editor 配列呈現的 G316 X 鍵盤"><div class="keyboard-face" aria-label="G316 X 75% 配列互動鍵盤"></div></div></div></div><div class="key-hover-label" role="status" aria-live="polite"></div>
+  </section>
+  <section aria-labelledby="keycap-title">
+    <div class="section-head"><div><div class="eyebrow">KEYCAP SET · GMK</div><h3 id="keycap-title">鍵帽介紹</h3></div><p>GMK November Fog</p></div>
+    <article class="keycap-profile">
+      <div class="keycap-story"><div class="eyebrow">DESIGNED BY KRUGERLIVE</div><h4>GMK November Fog</h4><p>設計靈感來自太平洋西北部的深秋景色，以霧氣、森林與山景的低彩度色調，呈現安靜沉穩的氛圍。目前安裝在這把 Logitech G316 X 上。</p></div>
+      <dl class="keycap-specs" aria-label="鍵帽規格">
+        <div class="keycap-spec"><dt>Profile</dt><dd>Cherry</dd></div>
+        <div class="keycap-spec"><dt>Material</dt><dd>ABS 雙色成型</dd></div>
+        <div class="keycap-spec"><dt>Thickness</dt><dd>1.5 mm</dd></div>
+        <div class="keycap-spec"><dt>Made by</dt><dd>GMK · Germany</dd></div>
+      </dl>
+    </article>
   </section>
   <section aria-labelledby="switches-title"><div class="section-head"><div><div class="eyebrow">FOUR SWITCHES, FOUR IMPRESSIONS</div><h3 id="switches-title">軸體手感筆記</h3></div><p>留下使用時最直接的感受。</p></div>
     <div class="switch-grid">
       <article class="switch-card" data-axis-card="ice" style="--switch-color:#83DFF2"><div class="switch-maker"><span>Outemu</span><span class="switch-index">01</span></div><h3>冰雪軸 V3</h3><p>全透明的靜音軸，敲擊聲收得很低，喜歡清爽安靜手感時很合適。</p><div class="feel"><span>全透明</span><span>靜音</span><span>輕柔</span></div></article>
       <article class="switch-card" data-axis-card="graywood" style="--switch-color:#778582"><div class="switch-maker"><span>Leobog</span><span class="switch-index">02</span></div><h3>灰木軸 V4</h3><p>手感紮實、回饋比較「肉」；聲音相較之下較散，是厚實但不那麼集中的敲擊感。</p><div class="feel"><span>紮實</span><span>肉感</span><span>聲音較散</span></div></article>
-      <article class="switch-card" data-axis-card="purple" style="--switch-color:#C5A0F5"><div class="switch-maker"><span>Maorbeng</span><span class="switch-index">03</span></div><h3>妹紫軸</h3><p>按起來滑順，整體沒有明顯短處。組裝時軸腳比較容易歪，價格也稍高一些。</p><div class="feel"><span>滑順</span><span>組裝留意軸腳</span><span>價格較高</span></div></article>
+      <article class="switch-card" data-axis-card="purple" style="--switch-color:#C5A0F5"><div class="switch-maker"><span>Maorbeng</span><span class="switch-index">03</span></div><h3>妹紫軸</h3><p>按起來滑順，整體沒有明顯短處。組裝時軸腳比較容易歪。</p><div class="feel"><span>滑順</span><span>組裝留意軸腳</span></div></article>
       <article class="switch-card" data-axis-card="marble" style="--switch-color:#F2EBDD"><div class="switch-maker"><span>Logitech</span><span class="switch-index">04</span></div><h3>大理石軸</h3><p>回彈俐落、遊戲操作跟手；長時間頻繁按 Shift 與 Ctrl，左手小拇指會比較吃力。</p><div class="feel"><span>回彈俐落</span><span>遊戲跟手</span><span>長按修飾鍵較累</span></div></article>
     </div>
-    <div class="keyboard-note"><b aria-hidden="true">✦</b><span>這裡記的是實際使用感受：大理石軸的回彈很適合遊戲操作，但若一場遊戲裡常按 Shift 和 Ctrl，也要把小拇指的負擔一起算進去。</span></div>
+    <div class="keyboard-note"><b aria-hidden="true">✦</b><span>目前軸體配置：Esc、F1–F12 與反斜線鍵為冰雪軸；數字列從反引號／波浪號鍵（` / ~）至等號鍵（=）為原廠大理石軸；文字區三列的 Q 至右中括號鍵（]）、A 至單引號鍵（'）、Z 至斜線鍵（/），以及左 Ctrl，皆使用妹紫軸。左 Shift 使用灰木軸 V4，其餘大鍵為冰雪軸。右側功能列的 PrtSc、Del、PgUp、PgDn 使用原廠大理石軸。</span></div>
   </section>
   <footer class="footer"><span>© 牛奶麻糬</span><span>Made with a little warmth ♡</span></footer>
 </main></div>
