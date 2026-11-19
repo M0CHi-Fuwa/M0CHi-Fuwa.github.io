@@ -5,7 +5,7 @@
 - `food.html`：美食分類
 - `moto.html`：機車分類
 - `gaming/games.html`：遊戲與完整電腦配備
-- `gaming/keyboard.html`：G316 X 鍵盤與軸體手感
+- `gaming/keyboard.html`：Logitech Alto Keys K98M 鍵盤、GMK November Fog 鍵帽與軸體手感
 - `gaming/cooling.html`：Qube 340 機殼及 Hyper 212 3DHP 風扇配置
 - `gaming/`：集中放置遊戲及電腦配備相關頁面；站內遊戲入口直接連到 `gaming/games.html`
 - `game.html`：舊連結轉址至 `gaming/games.html`
