@@ -88,8 +88,11 @@
   assign('/', 'purple', 0); // Main keyboard slash; leave numpad division Marble.
   assign('.', 'purple', 0); // Main keyboard period; leave numpad decimal Marble.
   assign('Shift', 'graywood', 0); // Left Shift
-  ['W', 'A', 'S', 'D'].forEach((keyName) => assign(keyName, 'graywood'));
+  assign('Caps', 'graywood');
+  assign('Space', 'graywood');
   assign('Ctrl', 'purple', 0); // Left Ctrl
+  ['Win', 'Alt', 'Fn'].forEach((keyName) => assign(keyName, 'ice'));
+  assign('Ctrl', 'ice', 1); // Right Ctrl
 
   function placeTooltip(x, y) {
     tooltip.classList.add('is-visible');
