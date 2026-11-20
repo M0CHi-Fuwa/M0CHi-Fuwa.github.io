@@ -90,6 +90,7 @@
   assign('Shift', 'graywood', 0); // Left Shift
   assign('Caps', 'ice');
   assign('Space', 'graywood');
+  assign('Backspace', 'graywood');
   assign('Ctrl', 'purple', 0); // Left Ctrl
   ['Win', 'Alt', 'Fn'].forEach((keyName) => assign(keyName, 'ice'));
   assign('Ctrl', 'ice', 1); // Right Ctrl
