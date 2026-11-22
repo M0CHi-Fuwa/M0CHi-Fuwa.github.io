@@ -91,6 +91,7 @@
   assign('Caps', 'ice');
   assign('Space', 'graywood');
   assign('Backspace', 'graywood');
+  assign('Enter', 'graywood', 0); // Main typing-area Enter; numpad Enter stays Marble.
   assign('Ctrl', 'purple', 0); // Left Ctrl
   ['Win', 'Alt', 'Fn'].forEach((keyName) => assign(keyName, 'ice'));
   assign('Ctrl', 'ice', 1); // Right Ctrl
