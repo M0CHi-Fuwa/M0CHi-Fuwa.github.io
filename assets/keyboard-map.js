@@ -88,7 +88,7 @@
   assign('/', 'purple', 0); // Main keyboard slash; leave numpad division Marble.
   assign('.', 'purple', 0); // Main keyboard period; leave numpad decimal Marble.
   assign('Shift', 'graywood', 0); // Left Shift
-  assign('Caps', 'ice');
+  // Caps Lock stays on the factory Marble switch.
   assign('Space', 'graywood');
   assign('Backspace', 'graywood');
   assign('Enter', 'graywood', 0); // Main typing-area Enter; numpad Enter stays Marble.
