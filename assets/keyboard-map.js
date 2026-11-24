@@ -93,8 +93,7 @@
   assign('Backspace', 'graywood');
   assign('Enter', 'graywood', 0); // Main typing-area Enter; numpad Enter stays Marble.
   assign('Ctrl', 'purple', 0); // Left Ctrl
-  ['Win', 'Alt', 'Fn'].forEach((keyName) => assign(keyName, 'ice'));
-  assign('Ctrl', 'ice', 1); // Right Ctrl
+  ['F1', 'F2', 'F3', 'F4', 'F9', 'F10', 'F11', 'F12'].forEach((keyName) => assign(keyName, 'ice'));
 
   function placeTooltip(x, y) {
     tooltip.classList.add('is-visible');
